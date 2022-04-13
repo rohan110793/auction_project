@@ -1,0 +1,22 @@
+*{
+    margin: 0px;
+    outline: 0px;
+    padding: 0px;
+}
+
+.add_user_form{
+    margin-left: 500px;
+}
+
+.label{
+    display:inline-block;
+    width: 130px;
+}
+
+.text, .password{
+    margin-top: 10px;
+}
+
+.submit{
+    margin-top: 5px;
+}
