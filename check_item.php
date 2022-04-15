@@ -6,7 +6,7 @@
         
         <?php
 
-            if(!empty($_POST["item_name"]) && !empty($_POST["item_description"]) && !empty($_POST["endtime"]) && !empty($_FILES["item_pic"]["name"])){
+            if (!empty($_POST["item_name"]) && !empty($_POST["item_description"]) && !empty($_POST["endtime"]) && !empty($_FILES["item_pic"]["name"])) {
 
                 $DBHOST = 'localhost';
                 $DBUSER = 'root';
