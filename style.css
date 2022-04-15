@@ -4,7 +4,7 @@
     padding: 0px;
 }
 
-.delete_item_form, .add_item_form, .add_user_form{
+.add_item_form, .add_user_form, .delete_user_form, .delete_item_form{
     margin-left: 500px;
 }
 
