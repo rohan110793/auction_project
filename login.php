@@ -1,10 +1,6 @@
-<html>
-<head><title>login page</title>
-
- <link rel="stylesheet" type="text/css" href="style.css">
- 
-</head>
-<body>
+<?php require('components/htmlhead.inc.php'); ?>
+<?php include('components/navbar.inc.php'); ?>
+<?php include('components/header.inc.php'); ?>
 <?php
 
     echo "<h1>Login</h1>";
@@ -26,5 +22,4 @@
     echo "</form>";
 
 ?>
-</body>
-</html>
+<?php require('components/htmlfoot.inc.php'); ?>
