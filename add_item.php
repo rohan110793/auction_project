@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>Add Item</title>
-        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
     </head>
     <body>
 

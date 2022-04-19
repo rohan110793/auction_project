@@ -4,6 +4,10 @@
     padding: 0px;
 }
 
+body {
+    padding-top: 50px;
+}
+
 .add_item_form, .add_user_form, .delete_user_form, .delete_item_form, .login_form, .relogin_form{
     margin-left: 500px;
 }
@@ -42,24 +46,45 @@
     border-left: 1px solid #CCCCCC;
 }
 
- .item{
-     border: 1px solid gray;
-     display: inline-block;
-     margin: 5px;
-     width: 200px;
- }
+.item{
+    border: 1px solid gray;
+    display: inline-block;
+    margin: 5px;
+    width: 200px;
+}
 
- .item_row {
+.item_row {
     border-top: 1px solid gray;
     width: 100%;
- }
+}
 
- .item_img{
+.item_img{
     height: 150px;
     width: 150px;
- }
+}
 
- .link{
+.link{
     text-decoration: none;
     color: black;
- }
+}
+
+
+.gradient{
+    background: rgb(12,182,194);
+    background: linear-gradient(
+        90deg, 
+        rgba(12,182,194,1) 17%, 
+        rgba(161,214,75,1) 100%
+    );
+}
+
+header.page-header{
+    height: 250px;
+}
+
+h1.header-title {
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    text-align: center;
+    padding: 20% 0%;
+}

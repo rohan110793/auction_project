@@ -1,11 +1,5 @@
-<html>
-<head><title>relogin</title>
-
-	 <link rel="stylesheet" type="text/css" href="style.css">
-	
- 
-</head>
-<body>
+<?php require('components/htmlhead.inc.php'); ?>
+<?php include('components/navbar.inc.php'); ?>
 <?php
     
     echo "<h1>Re Login</h1>";
@@ -25,6 +19,5 @@
     echo "<input class='submit' type='submit' value='Sign in'/>";	
     echo "</form>";
     
-	?>
-</body>
-</html>
+?>
+<?php require('components/htmlfoot.inc.php'); ?>
