@@ -26,12 +26,6 @@
             class="collapse navbar-collapse" 
             id="navbarNav">
             <ul class="navbar-nav ms-auto text-center">
-                <li class="nav-item">
-                    <a href="#" class="nav-link">Profile</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">Bids</a>
-                </li>
 
                 <?php
 
@@ -50,6 +44,14 @@
                         echo "<a href='add_user.php' class='nav-link'>Sign Up</a>";
                         echo "</li>";
                     } else {
+                        echo "<li class='nav-item'>";
+                        echo "<a href='#' class='nav-link'>Profile</a>";
+                        echo "</li>";
+
+                        echo "<li class='nav-item'>";
+                        echo "<a href='#' class='nav-link'>Bids</a>";
+                        echo "</li>";
+
                         echo "<li class='nav-item'>";
                         echo "<a href='logout.php' class='nav-link'>Logout</a>";
                         echo "</li>";
