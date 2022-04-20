@@ -1,7 +1,8 @@
 <?php require('components/htmlhead.inc.php'); ?>
 <?php include('components/navbar.inc.php'); ?>
 <?php include('components/header.inc.php'); ?>
-<?php
+<?php include('components/loginform.inc.php'); ?>
+<!-- <?php
 
     echo "<h1>Login</h1>";
     echo "<br>";
@@ -21,5 +22,5 @@
     echo "<input class='submit' type='submit' value='Sign in'/>";	
     echo "</form>";
 
-?>
+?> -->
 <?php require('components/htmlfoot.inc.php'); ?>

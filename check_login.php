@@ -1,24 +1,16 @@
-<html>
-<head><title>check login</title>
-
-	 <link rel="stylesheet" type="text/css" href="css/style.css">
-</head>
-
-<body>
-	
+<?php require('components/htmlhead.inc.php'); ?>
 <?php
 
-if(!empty($_POST["username"]) && !empty($_POST["password"]))
-{
+if(!empty($_POST["username"]) && !empty($_POST["password"])) {
+	
 	$DBHOST = "localhost";
 	$DBUSER = "root";
 	$DBPWD = "";
 	$DBNAME = "auction_man";
 
 	$conn = new mysqli($DBHOST, $DBUSER, $DBPWD, $DBNAME);
-	if($conn->connect_error)
-	{
-	die("Connection failed!".$conn->connect_error);
+	if($conn->connect_error) {
+		die("Connection failed!".$conn->connect_error);
 	}
  
 	$username = $_POST["username"];
@@ -30,29 +22,20 @@ if(!empty($_POST["username"]) && !empty($_POST["password"]))
 	$row = $result->fetch_assoc();
 	$hash = $row["password"]; 
 
-	if(password_verify($_POST["password"], $hash))
-	{
+	if(password_verify($_POST["password"], $hash)) {
 		echo "Successful login";
 		session_start();
 		$_SESSION["username"] = $_POST["username"];
 		$conn->close();
 		header("Location: display_items.php");
-	}
-
-	else
-	{
+	} else {
 		$conn->close();
 		header("Location:relogin.php");
 	}/*verifies if user has entered correct password*/
-}
-else
-{
-header("Location:login.php");
+
+} else {
+	header("Location:login.php");
 } /*verify user not directly accessing this page */
 
 ?>
-
-
-
-</body>
-</html>
+<?php require('components/htmlfoot.inc.php'); ?>
