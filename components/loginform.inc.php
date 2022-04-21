@@ -1,7 +1,7 @@
 <section class="login-form my-4 mx-5">
 
     <div class="form-container">
-        <div class="row">
+        <div class="row login_row">
             <div class="col-lg-5">
                 <img src="item/pricetags.jpg"  class="img-fluid login-img" alt="" >
             </div>
