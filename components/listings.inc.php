@@ -47,7 +47,7 @@
                     echo "<p class='card-text'>$i_desc</p>";
                     echo "<p class='card-text mr-4 text-success'>$$icurrent</p>";
                     echo "</div>";
-                    echo "<a href='$item_details' class='card-link text-decoration-none'>Item Details</a>";
+                    echo "<a href='$item_details' class='card-link text-decoration-none'>Bid on Item</a>";
                     echo "</div>";
                     echo "</div>";
                     echo "</div>";

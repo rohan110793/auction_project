@@ -12,8 +12,23 @@
                     width="60"
                     height="60"
                 />
-                <h4>Sign Into Your Account</h4>
-                <form action='check_login.php' method='post' role='form'>
+                <h4>Admin Login</h4>
+
+                <?php
+
+                    if(isset($_GET["admin"])) {
+
+                        if($_GET["admin"]=="empty") {
+                            echo "<p style='color:red;'>Please Enter Username and Passoword</p>";
+                        } else if ($_GET["admin"]=="unsuccessful") {
+                            echo "<p style='color:red;'>Incorrect Username or Password</p>";
+                        }
+
+                    }
+
+                ?>
+
+                <form action='check_admin.php' method='post' role='form'>
                     <div class="form-row">
                         <div class="col-lg-7">
                             <input type="text" placeholder="Username" class="form-control my-3" name="username">
@@ -29,7 +44,7 @@
                             <input type="submit" class="btn1 mt-3 mb-5" value="Login"/>
                         </div>
                     </div>
-                    <a href="admin_login.php">Admin Login</a>
+                    <a href="login.php">User Login</a>
                     <p>Don't have an account? <a href="add_user.php">Register here</a></p>
                 </form>
             </div>
