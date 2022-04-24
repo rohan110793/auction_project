@@ -38,7 +38,10 @@
                     $iname= $row["item_name"];
                     $i_desc = $row["item_desc"];
                     $iiprice = $row["init_bid"];
-                    $end = $row["endtime"];
+                    $end_date = $row["date"];
+                    $hours = $row["hours"];
+                    $minutes = $row["minutes"];
+                    $seconds = $row["seconds"];
                     $bid_num = $row["bid_num"];
                     $icprice = $row["current_bid"];
                     $iimg = "item/";
@@ -84,7 +87,8 @@
                     echo "</form>";
                     echo "</div>";
                     echo "<div class='row my-3'>";
-                    echo "<h5>End Time: $end</h5>";
+                    echo "<h5>End Time:</h5>";
+                    echo "<p id='count_down_date'></p>";
                     echo "</div>";
                     echo "</div>";
 
@@ -99,3 +103,30 @@
     </div>
 
 </section>
+
+<script>
+
+    let countDownDate = <?php echo strtotime("$end_date $hours:$minutes:$seconds") ?> * 1000
+    let now = <?php echo time() ?> * 1000
+
+    let x = setInterval(function() {
+
+        now = now + 1000
+
+        let distance = countDownDate - now
+
+        let days = Math.floor(distance / (1000 * 60 * 60 * 24))
+        let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+        let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
+        let seconds = Math.floor((distance % (1000 * 60)) / 1000)
+
+        document.getElementById('count_down_date').innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s"
+
+        if (distance < 0) {
+            clearInterval(x)
+            document.getElementById('count_down_date').innerHTML = 'EXPIRED'
+        }
+
+    }, 1000)
+
+</script>

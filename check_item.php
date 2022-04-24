@@ -6,7 +6,7 @@
         
         <?php
 
-            if (!empty($_POST["item_name"]) && !empty($_POST["item_description"]) && !empty($_POST["endtime"]) && !empty($_FILES["item_pic"]["name"])) {
+            if (!empty($_POST["item_name"]) && !empty($_POST["item_description"]) && !empty($_POST["end_date"]) && !empty($_POST["end_time"]) && !empty($_FILES["item_pic"]["name"])) {
 
                 $DBHOST = 'localhost';
                 $DBUSER = 'root';
@@ -24,7 +24,11 @@
                 $iname = $_POST["item_name"];
                 $idesc = $_POST["item_description"];
                 $iipic = $_FILES["item_pic"]["name"];
-                $endtime = $_POST["endtime"];
+                $end_date = $_POST["end_date"];
+                $end_time = explode(":", $_POST["end_time"]);
+                $hours = $end_time[0];
+                $minutes = $end_time[1];
+                $seconds = '00';
 
                 $statement = 'SELECT * FROM item WHERE item_name=?';
                 $stmt = $conn->prepare($statement);
@@ -37,10 +41,10 @@
                     $conn->close();
                     header("Location:add_item.php?item=$value");
                 } else {
-                    $statement = 'INSERT INTO item (item_name, item_desc, item_pic, endtime, posted_by) VALUES(?, ?, ?, ?, ?)';
+                    $statement = 'INSERT INTO item (item_name, item_desc, item_pic, posted_by, date, hours, minutes, seconds) VALUES(?, ?, ?, ?, ?, ?, ?, ?)';
 
                     $stmt = $conn->prepare($statement);
-                    $stmt->bind_param("sssss", $iname, $idesc, $iipic, $endtime, $poster);
+                    $stmt->bind_param("ssssssss", $iname, $idesc, $iipic, $poster, $end_date, $hours, $minutes, $seconds);
                     $stmt->execute();
 
                     $value = 'successful';

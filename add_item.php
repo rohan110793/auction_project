@@ -52,11 +52,15 @@
                 echo "<input class='text' type='text' name='item_description'/>";
                 echo "<br>";
 
-                echo "<label class='label' for='endtime'>Ending Bid Time:</label>";
-                echo "<input class='text' type='text' name='endtime'/>";
+                echo "<label class='label' for='end_date'>Choose Ending Date:</label>";
+                echo "<input type='date' id='datefield' name='end_date'/>";
                 echo "<br>";
 
-                echo "<label class='label' for='item_pic'>Itme Picture:</label>";
+                echo "<label class='label' for='end_time'>Choose Ending Time:</label>";
+                echo "<input type='time' id='timefield' value='12:00' name='end_time' />";
+                echo "<br>";
+
+                echo "<label class='label' for='item_pic'>Item Picture:</label>";
                 echo "<input class='text' type='file' value='item_pic' name='item_pic'/>";
                 echo "<br>";
 
@@ -67,6 +71,22 @@
 
         
         ?>
+
+        <script>
+            var tomorrow = new Date();
+            var dd = tomorrow.getDate()+1;
+            var mm = tomorrow.getMonth()+1; //January is 0 so need to add 1 to make it 1!
+            var yyyy = tomorrow.getFullYear();
+            if(dd<10){
+            dd='0'+dd
+            } 
+            if(mm<10){
+            mm='0'+mm
+            } 
+
+            tomorrow = yyyy+'-'+mm+'-'+dd;
+            document.getElementById("datefield").setAttribute("min", tomorrow);
+        </script>
         
     </body>
 </html>
