@@ -45,7 +45,11 @@
                         echo "</li>";
                     } else {
                         echo "<li class='nav-item'>";
-                        echo "<a href='#' class='nav-link'>Profile</a>";
+                        echo "<a href='add_item.php' class='nav-link'>Post Item</a>";
+                        echo "</li>";
+
+                        echo "<li class='nav-item'>";
+                        echo "<a href='user_profile.php' class='nav-link'>Profile</a>";
                         echo "</li>";
 
                         echo "<li class='nav-item'>";

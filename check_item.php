@@ -20,6 +20,7 @@
                 }
 
 
+                $poster = $_POST["username"];
                 $iname = $_POST["item_name"];
                 $idesc = $_POST["item_description"];
                 $iipic = $_FILES["item_pic"]["name"];
@@ -36,10 +37,10 @@
                     $conn->close();
                     header("Location:add_item.php?item=$value");
                 } else {
-                    $statement = 'INSERT INTO item (item_name, item_desc, item_pic, endtime) VALUES(?, ?, ?, ?)';
+                    $statement = 'INSERT INTO item (item_name, item_desc, item_pic, endtime, posted_by) VALUES(?, ?, ?, ?, ?)';
 
                     $stmt = $conn->prepare($statement);
-                    $stmt->bind_param("ssss", $iname, $idesc, $iipic, $endtime);
+                    $stmt->bind_param("sssss", $iname, $idesc, $iipic, $endtime, $poster);
                     $stmt->execute();
 
                     $value = 'successful';
