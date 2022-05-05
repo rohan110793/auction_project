@@ -3,6 +3,8 @@
     <div class="container mt-4 d-flex mb-5">
         <div class="row">
 
+        <h2>Featured Items</h2>
+
         <?php
 
             session_start();
@@ -39,7 +41,7 @@
                     $i_desc = $row["item_desc"];
 
                     echo "<div class='col-md-4 mt-5'>";
-                    echo "<div class='card'>";
+                    echo "<div class='card h-100'>";
                     echo "<img src='$iimg' class='card-img-top w-100' />";
                     echo "<div class='card-body'>";
                     echo "<h2 class='card-title'>$iname</h2>";

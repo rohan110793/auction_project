@@ -19,6 +19,13 @@ if(!empty($_POST["username"]) && !empty($_POST["password"])) {
 	$stmt->bind_param("s", $username);
 	$stmt->execute();
 	$result = $stmt->get_result();
+
+	if ($result->num_rows<1) {
+		$conn->close();
+		$value = "invalid";
+		header("Location:login.php?credentials=$value");
+	}
+
 	$row = $result->fetch_assoc();
 	$hash = $row["password"]; 
 
@@ -30,7 +37,8 @@ if(!empty($_POST["username"]) && !empty($_POST["password"])) {
 		header("Location: display_items.php");
 	} else {
 		$conn->close();
-		header("Location:relogin.php");
+		$value = "invalid";
+		header("Location:login.php?credentials=$value");
 	}/*verifies if user has entered correct password*/
 
 } else {

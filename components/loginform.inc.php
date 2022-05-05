@@ -13,6 +13,19 @@
                     height="60"
                 />
                 <h4>Sign Into Your Account</h4>
+
+                <?php
+
+                    if(isset($_GET["credentials"])) {
+
+                        if($_GET["credentials"]=="invalid") {
+                            echo "<p style='color:red;'>Invalid credentials entered</p>";
+                        }
+
+                    }
+
+                ?>
+
                 <form action='check_login.php' method='post' role='form'>
                     <div class="form-row">
                         <div class="col-lg-7">

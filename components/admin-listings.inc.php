@@ -1,13 +1,11 @@
-<section class="all_users-section">
+<section class="all_items-section">
 
     <div class="container mt-4 d-flex mb-5">
         <div class="row">
 
-            <h2>All Users</h2>
+            <h2>All Listings</h2>
 
             <?php
-
-                session_start();
 
                 if (!isset($_SESSION['username'])) {
 
@@ -26,31 +24,34 @@
                         die('Connection failed!'.$conn->connect_error);
                     }
 
-                    $statement = "SELECT * FROM user";
+                    $statement = "SELECT * FROM item";
                     $result = $conn->query($statement);
-
+    
                     while ($row = $result->fetch_assoc()) {
-                        $uid = $row['user_id'];
-                        $uname = $row['username'];
-                        $ufirst = $row['firstname'];
-                        $ulast = $row['lastname'];
-
+                        $iid = $row["item_id"];
+                        $iname = $row["item_name"];
+                        $ipic = $row["item_pic"];
+                        $icurrent = $row["current_bid"];
+                        $iimg = "item/";
+                        $iimg = $iimg.$row["item_pic"];
+                        $link = "item_details.php?item_id=";
+                        $item_details = $link.$iid;
+                        $i_desc = $row["item_desc"];
+    
                         echo "<div class='col-md-4 mt-5'>";
                         echo "<div class='card h-100'>";
+                        echo "<img src='$iimg' class='card-img-top w-100' />";
                         echo "<div class='card-body'>";
-                        echo "<h2 class='card-title'>$uname</h2>";
+                        echo "<h2 class='card-title'>$iname</h2>";
                         echo "<div class='d-flex justify-content-between'>";
-                        echo "<p class='card-text'>First Name: $ufirst</p>";
-                        echo "<p class='card-text'>Last Name: $ulast</p>";
-                        echo "<p class='card-text mr-4'>User ID: $uid</p>";
+                        echo "<p class='card-text'>$i_desc</p>";
+                        echo "<p class='card-text mr-4 text-success'>$$icurrent</p>";
                         echo "</div>";
-                        echo "<a type='button' rel='$uname' class='delete_btn btn btn-danger btn-sm'>Delete User</a>";
+                        echo "<a type='button' rel='$iname' class='delete_item_btn btn btn-danger btn-sm'>Delete Item</a>";
                         echo "</div>";
                         echo "</div>";
                         echo "</div>";
                     }
-
-                    $conn->close();
 
                 }
 

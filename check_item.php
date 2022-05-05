@@ -30,6 +30,14 @@
                 $minutes = $end_time[1];
                 $seconds = '00';
 
+
+                // $end_datetime = $_POST["end_datetime"]; // 2020-01-01T10:10:10
+                // $separate = explode("T", $end_datetime); // [2020-01-01, 10:10:10]
+                // $thedate = $separate[0]; // 2020-01-01
+                // $thetime = $separate[1]; // 10:10:10
+                // $insertformat = $thedate + " " + $thetime + "-08:00";
+
+
                 $statement = 'SELECT * FROM item WHERE item_name=?';
                 $stmt = $conn->prepare($statement);
                 $stmt->bind_param("s", $iname);
@@ -47,9 +55,8 @@
                     $stmt->bind_param("ssssssss", $iname, $idesc, $iipic, $poster, $end_date, $hours, $minutes, $seconds);
                     $stmt->execute();
 
-                    $value = 'successful';
                     $conn->close();
-                    header("Location:add_item.php?item=$value");
+                    header("Location:display_items.php");
                 }
 
             } else {

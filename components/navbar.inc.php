@@ -43,6 +43,10 @@
                         echo "<li class='nav-item'>";
                         echo "<a href='add_user.php' class='nav-link'>Sign Up</a>";
                         echo "</li>";
+                    } else if ((!isset($_SESSION['username'])) and $curPageName == 'admin_homepage.php') {
+                        echo "<li class='nav-item'>";
+                        echo "<a href='logout.php' class='nav-link'>Logout</a>";
+                        echo "</li>";
                     } else {
                         echo "<li class='nav-item'>";
                         echo "<a href='add_item.php' class='nav-link'>Post Item</a>";
@@ -50,10 +54,6 @@
 
                         echo "<li class='nav-item'>";
                         echo "<a href='user_profile.php' class='nav-link'>Profile</a>";
-                        echo "</li>";
-
-                        echo "<li class='nav-item'>";
-                        echo "<a href='#' class='nav-link'>Bids</a>";
                         echo "</li>";
 
                         echo "<li class='nav-item'>";

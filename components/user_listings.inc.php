@@ -34,6 +34,10 @@
                     $stmt->execute();
                     $result = $stmt->get_result();
 
+                    if ($result->num_rows<=0) {
+                        echo "<h4>You have not listed any items for sale</h4>";
+                    }
+
                     while ($row = $result->fetch_assoc()) {
                         $iid = $row["item_id"];
                         $iname = $row["item_name"];
@@ -46,7 +50,7 @@
                         $i_desc = $row["item_desc"];
 
                         echo "<div class='col-md-4 mt-5'>";
-                        echo "<div class='card'>";
+                        echo "<div class='card h-100'>";
                         echo "<img src='$iimg' class='card-img-top w-100' />";
                         echo "<div class='card-body'>";
                         echo "<h2 class='card-title'>$iname</h2>";
