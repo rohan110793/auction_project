@@ -35,7 +35,11 @@
                         echo "<li class='nav-item'>";
                         echo "<a href='add_user.php' class='nav-link'>Sign Up</a>";
                         echo "</li>";
-                    } else if ((!isset($_SESSION['username'])) and $curPageName == 'add_user.php') {
+                    } else if ((!isset($_SESSION['username'])) and $curPageName == 'home.php') {
+                        echo "<li class='nav-item'>";
+                        echo "<a href='add_user.php' class='nav-link'>Sign Up</a>";
+                        echo "</li>";
+                    }else if ((!isset($_SESSION['username'])) and $curPageName == 'add_user.php') {
                         echo "<li class='nav-item'>";
                         echo "<a href='login.php' class='nav-link'>Login</a>";
                         echo "</li>";
