@@ -45,9 +45,18 @@
                         echo "</li>";
                     } else if ((!isset($_SESSION['username'])) and $curPageName == 'admin_homepage.php') {
                         echo "<li class='nav-item'>";
+                        echo "<a href='admin_homepage.php' class='nav-link'>Admin Home</a>";
+                        echo "</li>";
+
+                        echo "<li class='nav-item'>";
                         echo "<a href='logout.php' class='nav-link'>Logout</a>";
                         echo "</li>";
                     } else {
+
+                        echo "<li class='nav-item'>";
+                        echo "<a href='display_items.php' class='nav-link'>All Items</a>";
+                        echo "</li>";
+
                         echo "<li class='nav-item'>";
                         echo "<a href='add_item.php' class='nav-link'>Post Item</a>";
                         echo "</li>";

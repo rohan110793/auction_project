@@ -40,7 +40,8 @@
                 $row = $result->fetch_assoc();
 
                 if ($_SESSION["username"] == $row["username"]) {
-                    echo "You are already the highest bidder";
+                    $value = "unsuccessful";
+                    header("Location:display_items.php?bid=$value");
                 } else {
                     $statement = "SELECT * FROM item WHERE item_id=?";
                     $stmt = $conn->prepare($statement);
@@ -77,7 +78,7 @@
                         $stmt->bind_param("dd", $bid, $item_id);
                         $stmt->execute();
 
-                        echo "Congratulations, the current bid value is $".$bid;
+                        header("Location:display_items.php");
                         $stmt->close();
 
                     } else {
