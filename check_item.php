@@ -6,7 +6,7 @@
         
         <?php
 
-            if (!empty($_POST["item_name"]) && !empty($_POST["item_description"]) && !empty($_POST["endtime"]) && !empty($_FILES["item_pic"]["name"])) {
+            if (!empty($_POST["item_name"]) && !empty($_POST["item_description"]) && !empty($_POST["end_date"]) && !empty($_POST["end_time"]) && !empty($_FILES["item_pic"]["name"])) {
 
                 $DBHOST = 'localhost';
                 $DBUSER = 'root';
@@ -20,10 +20,23 @@
                 }
 
 
+                $poster = $_POST["username"];
                 $iname = $_POST["item_name"];
                 $idesc = $_POST["item_description"];
                 $iipic = $_FILES["item_pic"]["name"];
-                $endtime = $_POST["endtime"];
+                $end_date = $_POST["end_date"];
+                $end_time = explode(":", $_POST["end_time"]);
+                $hours = $end_time[0];
+                $minutes = $end_time[1];
+                $seconds = '00';
+
+
+                // $end_datetime = $_POST["end_datetime"]; // 2020-01-01T10:10:10
+                // $separate = explode("T", $end_datetime); // [2020-01-01, 10:10:10]
+                // $thedate = $separate[0]; // 2020-01-01
+                // $thetime = $separate[1]; // 10:10:10
+                // $insertformat = $thedate + " " + $thetime + "-08:00";
+
 
                 $statement = 'SELECT * FROM item WHERE item_name=?';
                 $stmt = $conn->prepare($statement);
@@ -36,15 +49,14 @@
                     $conn->close();
                     header("Location:add_item.php?item=$value");
                 } else {
-                    $statement = 'INSERT INTO item (item_name, item_desc, item_pic, endtime) VALUES(?, ?, ?, ?)';
+                    $statement = 'INSERT INTO item (item_name, item_desc, item_pic, posted_by, date, hours, minutes, seconds) VALUES(?, ?, ?, ?, ?, ?, ?, ?)';
 
                     $stmt = $conn->prepare($statement);
-                    $stmt->bind_param("ssss", $iname, $idesc, $iipic, $endtime);
+                    $stmt->bind_param("ssssssss", $iname, $idesc, $iipic, $poster, $end_date, $hours, $minutes, $seconds);
                     $stmt->execute();
 
-                    $value = 'successful';
                     $conn->close();
-                    header("Location:add_item.php?item=$value");
+                    header("Location:display_items.php");
                 }
 
             } else {

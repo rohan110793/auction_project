@@ -1,6 +1,8 @@
 <?php require('components/htmlhead.inc.php'); ?>
 <?php include('components/navbar.inc.php'); ?>
-<?php
+<?php include('components/header.inc.php'); ?>
+<?php include('components/signupform.inc.php'); ?>
+<!-- <?php
     
     echo "<h1>This is signup page</h1>";
     echo "<br>";
@@ -56,5 +58,5 @@
     
     echo "</form>";
     
-?>
+?> -->
 <?php require('components/htmlfoot.inc.php'); ?>

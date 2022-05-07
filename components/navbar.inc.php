@@ -43,13 +43,26 @@
                         echo "<li class='nav-item'>";
                         echo "<a href='add_user.php' class='nav-link'>Sign Up</a>";
                         echo "</li>";
-                    } else {
+                    } else if ((!isset($_SESSION['username'])) and $curPageName == 'admin_homepage.php') {
                         echo "<li class='nav-item'>";
-                        echo "<a href='#' class='nav-link'>Profile</a>";
+                        echo "<a href='admin_homepage.php' class='nav-link'>Admin Home</a>";
                         echo "</li>";
 
                         echo "<li class='nav-item'>";
-                        echo "<a href='#' class='nav-link'>Bids</a>";
+                        echo "<a href='logout.php' class='nav-link'>Logout</a>";
+                        echo "</li>";
+                    } else {
+
+                        echo "<li class='nav-item'>";
+                        echo "<a href='display_items.php' class='nav-link'>All Items</a>";
+                        echo "</li>";
+
+                        echo "<li class='nav-item'>";
+                        echo "<a href='add_item.php' class='nav-link'>Post Item</a>";
+                        echo "</li>";
+
+                        echo "<li class='nav-item'>";
+                        echo "<a href='user_profile.php' class='nav-link'>Profile</a>";
                         echo "</li>";
 
                         echo "<li class='nav-item'>";
