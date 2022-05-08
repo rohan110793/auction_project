@@ -64,7 +64,7 @@
             <div class="post-item-row mb-3">
                 <div class="justify-content-center">
                     <label class='label' for='item_pic'>Item Picture:</label>
-                    <input class='text form-control' type='file' value='item_pic' name='item_pic'>
+                    <input class='text form-control' type='file' accept="image/*" value='item_pic' name='item_pic'>
                 </div>
             </div>
 

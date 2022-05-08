@@ -45,17 +45,19 @@
                 while ($row = $result->fetch_assoc()) {
                     $iid = $row["item_id"];
                     $iname = $row["item_name"];
-                    $ipic = $row["item_pic"];
+                    $ipic_name = $row["img_name"];
+                    $ipic_data = $row["img_data"];
                     $icurrent = $row["current_bid"];
-                    $iimg = "item/";
-                    $iimg = $iimg.$row["item_pic"];
+                    $img_base = base64_encode($row["img_data"]);
+                    // $iimg = "item/";
+                    // $iimg = $iimg.$row["item_pic"];
                     $link = "item_details.php?item_id=";
                     $item_details = $link.$iid;
                     $i_desc = $row["item_desc"];
 
                     echo "<div class='col-md-4 mt-5'>";
                     echo "<div class='card h-100'>";
-                    echo "<img src='$iimg' class='card-img-top w-100' />";
+                    echo "<img src='data:image/jpg;charset=utf8;base64,$img_base' class='card-img-top w-100' />";
                     echo "<div class='card-body'>";
                     echo "<h2 class='card-title'>$iname</h2>";
                     echo "<div class='d-flex justify-content-between'>";

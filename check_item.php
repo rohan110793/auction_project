@@ -26,7 +26,8 @@
                 $poster = $_POST["username"];
                 $iname = $_POST["item_name"];
                 $idesc = $_POST["item_description"];
-                $iipic = $_FILES["item_pic"]["name"];
+                $iipic_name = $_FILES["item_pic"]["name"];
+                $iipic_data = file_get_contents($_FILES['item_pic']['tmp_name']);
                 $end_date = $_POST["end_date"];
                 $end_time = explode(":", $_POST["end_time"]);
                 $hours = $end_time[0];
@@ -52,10 +53,10 @@
                     $conn->close();
                     header("Location:add_item.php?item=$value");
                 } else {
-                    $statement = 'INSERT INTO item (item_name, item_desc, item_pic, posted_by, date, hours, minutes, seconds) VALUES(?, ?, ?, ?, ?, ?, ?, ?)';
+                    $statement = 'INSERT INTO item (item_name, item_desc, img_name, img_data, posted_by, date, hours, minutes, seconds) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)';
 
                     $stmt = $conn->prepare($statement);
-                    $stmt->bind_param("ssssssss", $iname, $idesc, $iipic, $poster, $end_date, $hours, $minutes, $seconds);
+                    $stmt->bind_param("sssbsssss", $iname, $idesc, $iipic_name, $iipic_data, $poster, $end_date, $hours, $minutes, $seconds);
                     $stmt->execute();
 
                     $conn->close();

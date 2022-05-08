@@ -48,12 +48,14 @@
                     $seconds = $row["seconds"];
                     $bid_num = $row["bid_num"];
                     $icprice = $row["current_bid"];
-                    $iimg = "item/";
-                    $iimg = $iimg.$row["item_pic"];
+                    $ipic_name = $row["img_name"];
+                    $ipic_data = $row["img_data"];
+                    $img_base = base64_encode($row["img_data"]);
+
 
                     echo "<div class='col-lg-6 col-md-6 p-0 py-md-5 my-xs-0 my-lg-4 my-md-5'>";
                     echo "<div class='image py-2 my-lg-0 my-md-5'>";
-                    echo "<img src='$iimg' class='img-fluid' alt='image'>";
+                    echo "<img src='data:image/jpg;charset=utf8;base64,$img_base' class='img-fluid' alt='image'>";
                     echo "</div>";
                     echo "</div>";
                     echo "<div class='col-lg-6 col-md-6 shadow content p-5'>";
