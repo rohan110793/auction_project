@@ -56,7 +56,7 @@
                     $statement = 'INSERT INTO item (item_name, item_desc, img_name, img_data, posted_by, date, hours, minutes, seconds) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)';
 
                     $stmt = $conn->prepare($statement);
-                    $stmt->bind_param("sssbsssss", $iname, $idesc, $iipic_name, $iipic_data, $poster, $end_date, $hours, $minutes, $seconds);
+                    $stmt->bind_param("sssssssss", $iname, $idesc, $iipic_name, $iipic_data, $poster, $end_date, $hours, $minutes, $seconds);
                     $stmt->execute();
 
                     $conn->close();
